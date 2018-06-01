@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">EladRedditHomeChallenge</string>
+    <string name="retry">RETRY</string>
+    <string name="save">save</string>
+    <string name="saved_posts_search">saved posts search...</string>
+    <string name="channel_search">channel search...</string>
+    <string name="saved_posts">saved posts</string>
+    <string name="post_saved">post saved</string>
+</resources>
