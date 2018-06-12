@@ -16,7 +16,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RedditApi {
 
     public static final Type REDDIT_POST_ARRAY_LIST_CLASS_TYPE = (new ArrayList<RedditPost>()).getClass();
-    public static final String BASE_URL = "https://www.reddit.com/r/";
+    public static final String BASE_URL = "https://www.reddit.com/";
+    public static final String BASE_URL_SUFFIX = "r/";
     public static final String JSON_FORMAT = ".json";
 
     public static RedditService createRedditService() {
@@ -33,7 +34,7 @@ public class RedditApi {
         Retrofit.Builder builder = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
-                .baseUrl(BASE_URL);
+                .baseUrl(BASE_URL + BASE_URL_SUFFIX);
 
         return builder.build().create(RedditService.class);
     }

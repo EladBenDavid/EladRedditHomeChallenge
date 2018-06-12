@@ -15,21 +15,16 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     private final List<Fragment> mFragmentList;
     private final List<String> mListFragmentTitles;
-    private Fragment current;
-    public ViewPagerAdapter(FragmentManager manager) {
+     public ViewPagerAdapter(FragmentManager manager) {
         super(manager);
         mFragmentList = new ArrayList<>();
         mListFragmentTitles = new ArrayList<>();
     }
 
-    public Fragment getCurrent() {
-        return current;
-    }
 
     @Override
     public Fragment getItem(int position) {
-        current = mFragmentList.get(position);
-        return current;
+        return mFragmentList.get(position);
     }
 
     @Override
@@ -47,10 +42,14 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         return mListFragmentTitles.get(position);
     }
 
-    public void updatePageTitle(String title) {
-        if (mFragmentList.indexOf(current) >= 0) {
-            mListFragmentTitles.set(mFragmentList.indexOf(current), title);
+    public void updatePageTitle(int itemPosition, String title) {
+        if (mFragmentList.indexOf(itemPosition) >= 0) {
+            mListFragmentTitles.set(mFragmentList.indexOf(itemPosition), title);
             notifyDataSetChanged();
         }
+    }
+
+    public Fragment getFragment(int itemIndex) {
+        return mFragmentList.get(itemIndex);
     }
 }

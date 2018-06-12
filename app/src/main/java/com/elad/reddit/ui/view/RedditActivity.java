@@ -72,7 +72,7 @@ public class RedditActivity extends AppCompatActivity implements ViewPager.OnPag
 
     @Override
     public boolean onQueryTextSubmit(String text) {
-        Fragment current = viewPagerAdapter.getCurrent();
+        Fragment current = viewPagerAdapter.getFragment(viewPager.getCurrentItem());
         if(current instanceof OnSearchQuery){
             ((OnSearchQuery)current).onSearchRequest(text);
         }
@@ -84,6 +84,6 @@ public class RedditActivity extends AppCompatActivity implements ViewPager.OnPag
 
     @Override
     public void OnTopbarTitleChange(String title) {
-        viewPagerAdapter.updatePageTitle(title);
+        viewPagerAdapter.updatePageTitle(viewPager.getCurrentItem(), title);
     }
 }

@@ -24,6 +24,13 @@ public class SavedPostsFragment extends BaseFragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = super.onCreateView(inflater,container,savedInstanceState);
+
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         try {
             List<RedditPost> savedPosts =  viewModel.getSavedPosts();
             savedPostsAdapter = new SavedPostsAdapter(savedPosts);
@@ -31,7 +38,6 @@ public class SavedPostsFragment extends BaseFragment{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return view;
     }
 
     @Override
